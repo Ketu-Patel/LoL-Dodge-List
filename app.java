@@ -33,7 +33,7 @@ public class app extends JFrame {
         contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         contentPane.setLayout(new BorderLayout(0, 0));
-        JButton b=new JButton("Play");
+        JButton b = new JButton("Run");
         setContentPane(contentPane);
     }
 }
