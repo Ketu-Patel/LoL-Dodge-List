@@ -1,6 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
-
+import javax.swing.border.EmptyBorder;
 
 public class app extends JFrame {
 
@@ -14,7 +14,8 @@ public class app extends JFrame {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    gui frame = new gui();
+                    app frame = new app();
+
                     frame.setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -26,7 +27,7 @@ public class app extends JFrame {
     /**
      * Create the frame.
      */
-/**
+
     public app() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 450, 300);
@@ -36,4 +37,3 @@ public class app extends JFrame {
         setContentPane(contentPane);
     }
 }
-*/
