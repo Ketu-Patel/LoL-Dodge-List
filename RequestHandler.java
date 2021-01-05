@@ -1,4 +1,4 @@
-import java.net.http.HttpClient
+import java.net.http.HttpClient;
 
 public class RequestHandler(){
 
