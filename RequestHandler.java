@@ -1,16 +1,15 @@
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
-import java.net.http.HttpHeaders;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.Duration;
-import org.json.simple.*;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 
 
 public class RequestHandler{
@@ -43,6 +42,7 @@ public class RequestHandler{
             HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
             JSONParser parser = new JSONParser();
             JSONObject obj = (JSONObject) parser.parse(response.body());
+            summonerIds[names] = (String) obj.get("summonerID");
         }
         return summonerIds;
     }
