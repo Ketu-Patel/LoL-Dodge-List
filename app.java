@@ -81,7 +81,7 @@ public class app extends JFrame {
                    if(data.get(i).equals("joined") || data.get(i).equals("the")){
                     continue;
                    }
-                   else if(data.get(i).equals("lefted")){
+                   else if(data.get(i).equals("left")){
                        discard = true;
                    }
                    else if(data.get(i).equals("lobby")){
