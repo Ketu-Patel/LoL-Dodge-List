@@ -74,8 +74,6 @@ public class app extends JFrame {
                         data.add(lines[j]);
                     }
                 }
-
-               // System.out.println(data);
                 team = new ArrayList<>();
                 String name = "";
                 Boolean discard =false;
