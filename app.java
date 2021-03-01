@@ -79,7 +79,6 @@ public class app extends JFrame {
                 team = new ArrayList<>();
                 String name = "";
                 Boolean discard =false;
-                int counter=0;
                 for(int i = 0; i< data.size(); i++){
                    if(data.get(i).equals("joined") || data.get(i).equals("the")){
                     continue;
