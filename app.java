@@ -41,23 +41,24 @@ public class app extends JFrame {
         headingPanel.add(header);
 
         JPanel panel = new JPanel(new GridBagLayout());
-        GridBagConstraints constr = new GridBagConstraints();
-        constr.insets = new Insets(5, 5, 5, 5);
-        constr.anchor = GridBagConstraints.WEST;
+        GridBagConstraints constraint = new GridBagConstraints();
+        constraint.insets = new Insets(5, 5, 5, 5);
+        constraint.anchor = GridBagConstraints.WEST;
 
-        constr.gridx=0;
-        constr.gridy=0;
+        constraint.gridx=0;
+        constraint.gridy=0;
         JLabel chatLabel = new JLabel("Enter Chat:");
 
         JTextArea chatTxt = new JTextArea(20,5);
         chatTxt.setBorder(new EmptyBorder(10,50,10,50));
-        panel.add(chatLabel, constr);
-        constr.gridx=1;
-        panel.add(chatTxt, constr);
-        constr.gridx=0; constr.gridy=1;
+        panel.add(chatLabel, constraint);
+        constraint.gridx=1;
+        panel.add(chatTxt, constraint);
+        constraint.gridx=0;
+        constraint.gridy=1;
 
-        constr.gridwidth = 2;
-        constr.anchor = GridBagConstraints.CENTER;
+        constraint.gridwidth = 2;
+        constraint.anchor = GridBagConstraints.CENTER;
 
         // Button with text "Run"
         JButton button = new JButton("Run");
@@ -107,7 +108,7 @@ public class app extends JFrame {
 
         });
         button.setBackground(new Color(120,200,34));
-        panel.add(button, constr);
+        panel.add(button, constraint);
         panel.setBackground(new Color(39,132,234));
         mainPanel.add(headingPanel);
         mainPanel.add(panel);
