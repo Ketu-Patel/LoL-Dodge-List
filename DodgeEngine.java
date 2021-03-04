@@ -13,13 +13,26 @@ public class DodgeEngine {
      * Stores Content of Inters Arraylist in Text File as CSV
      */
     public void StoreText(){
-
+        try {
+            FileWriter csvWriter = new FileWriter("Dodge_List.txt");
+            for (Player a : inters) {
+                String[] temp = {a.getName(), a.getMessage()};
+                csvWriter.append(String.join(",", temp));
+                csvWriter.append("\n");
+            }
+            csvWriter.flush();
+            csvWriter.close();
+        }
+        catch (IOException e){
+            System.out.println(e.getMessage());
+        }
     }
 
     /**
      * Reads in CSV to populate inters Arraylist
      */
     public void ReadIn(){
+        inters.clear();
         try {
             BufferedReader csvReader = new BufferedReader(new FileReader("Dodge_List.txt"));
             String row;
