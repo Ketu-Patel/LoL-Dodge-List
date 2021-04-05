@@ -1,4 +1,6 @@
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.*;
 import java.io.*;
 
@@ -14,7 +16,7 @@ public class DodgeEngine {
      * @param team
      * @return
      */
-    public ArrayList<Player> FindPlayers(ArrayList<String> team){
+    public ArrayList<Player> FindPlayers(@NotNull ArrayList<String> team){
         ArrayList<Player> found_players = new ArrayList<Player>();
         for (String teammate : team){
             for (Player player : inters){
