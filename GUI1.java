@@ -12,6 +12,9 @@ public class GUI1 {
     private JButton checkPlayersButton;
     private JTextArea placeLobbyChatHereTextArea;
     private JLabel message_board;
+    private JButton dodgePlayer;
+    private JTextField banPlayerName;
+    private JTextArea dodgeReason;
     public ArrayList<String>team;
 
     public GUI1() {
@@ -64,6 +67,10 @@ public class GUI1 {
                     }
                 }
                 //System.out.println(team);
+                //Check against DodgeList
+                DodgeEngine DodgeEngine2 = new DodgeEngine();
+                ArrayList<Player> found_inters = DodgeEngine2.FindPlayers(team);
+                dodgePlayerFound(found_inters);
             }
         });
 
@@ -101,10 +108,62 @@ public class GUI1 {
                 }
             }
         });
+        dodgePlayer.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                DodgeEngine DodgeEngine1 = new DodgeEngine();
+                DodgeEngine1.AddPlayer(banPlayerName.getText(), dodgeReason.getText());
+                message_board.setText("Task is complete");
+            }
+        });
+        banPlayerName.addFocusListener(new FocusAdapter() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                super.focusGained(e);
+                banPlayerName.setText("");
+            }
+        });
+        dodgeReason.addFocusListener(new FocusAdapter() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                super.focusGained(e);
+                dodgeReason.setText("");
+            }
+        });
     }
-
+    public void dodgePlayerFound(ArrayList<Player> found_inters){
+        JFrame inter_frame = new JFrame("League Dodge App");
+        ImageIcon img = new ImageIcon("icon.png");
+        inter_frame.setIconImage(img.getImage());
+        JPanel panel = new JPanel();
+        panel.setLayout(new GridLayout());
+        JLabel label = new JLabel("Here are the players found and their reasons:");
+        JLabel players_info = new JLabel("");
+        String players_string= "";
+        for(int i = 0; i< found_inters.size();i++){
+            players_string+=found_inters.get(i).getName()+"\t"+found_inters.get(i).getMessage()+"\n";
+        }
+        players_info.setText(players_string);
+        JButton button = new JButton();
+        button.setText("Exit");
+        button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                inter_frame.dispose();
+            }
+        });
+        panel.add(label);
+        panel.add(players_info);
+        panel.add(button);
+        inter_frame.add(panel);
+        inter_frame.setSize(200, 300);
+        inter_frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        inter_frame.setVisible(true);
+    }
     public static void main(String[] args) {
         JFrame frame = new JFrame("League Dodge App");
+        ImageIcon img = new ImageIcon("icon.png");
+        frame.setIconImage(img.getImage());
         frame.setContentPane(new GUI1().initial_panel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
