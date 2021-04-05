@@ -10,6 +10,23 @@ public class DodgeEngine {
     }
 
     /**
+     * Searches inters arraylist to find instances current team members
+     * @param team
+     * @return
+     */
+    public ArrayList<Player> FindPlayers(ArrayList<String> team){
+        ArrayList<Player> found_players = new ArrayList<Player>();
+        for (String teammate : team){
+            for (Player player : inters){
+                if (teammate.equals(player.getName())){
+                    found_players.add(player);
+                }
+            }
+        }
+        return found_players;
+    }
+
+    /**
      * Stores Content of Inters Arraylist in Text File as CSV
      */
     public void StoreText(){
