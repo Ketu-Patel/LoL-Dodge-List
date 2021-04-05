@@ -16,6 +16,7 @@ public class GUI1 {
     private JTextField banPlayerName;
     private JTextArea dodgeReason;
     public ArrayList<String>team;
+    private DodgeEngine Engine = new DodgeEngine();
 
     public GUI1() {
         initial_panel.setBackground(new Color(39,132,234));
@@ -74,9 +75,9 @@ public class GUI1 {
                 }
 
                 //Check against DodgeList
-                DodgeEngine DodgeEngine2 = new DodgeEngine();
-                DodgeEngine2.ReadIn();
-                ArrayList<Player> found_inters = DodgeEngine2.FindPlayers(team);
+
+                Engine.ReadIn();
+                ArrayList<Player> found_inters = Engine.FindPlayers(team);
                 dodgePlayerFound(found_inters);
                 System.out.println(found_inters.get(0).getName());
             }
@@ -119,9 +120,8 @@ public class GUI1 {
         dodgePlayer.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                DodgeEngine DodgeEngine1 = new DodgeEngine();
-                DodgeEngine1.AddPlayer(banPlayerName.getText(), dodgeReason.getText());
-                DodgeEngine1.StoreText();
+                Engine.AddPlayer(banPlayerName.getText(), dodgeReason.getText());
+                Engine.StoreText();
                 message_board.setText("Task is complete");
             }
         });
