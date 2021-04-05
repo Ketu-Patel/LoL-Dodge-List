@@ -1,2 +1,4 @@
 # LoL-Dodge-List
-Gives an analysis of your team's previous games and allows you to exit the game in champion select if you are not interested in playing
+- Notifies user of someone that is on a list that the user places them in
+- Gives an analysis of your team's previous games 
+- 
