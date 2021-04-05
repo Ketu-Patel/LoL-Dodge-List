@@ -69,6 +69,7 @@ public class GUI1 {
                 //System.out.println(team);
                 //Check against DodgeList
                 DodgeEngine DodgeEngine2 = new DodgeEngine();
+                DodgeEngine2.ReadIn();
                 ArrayList<Player> found_inters = DodgeEngine2.FindPlayers(team);
                 dodgePlayerFound(found_inters);
             }
@@ -113,6 +114,7 @@ public class GUI1 {
             public void actionPerformed(ActionEvent e) {
                 DodgeEngine DodgeEngine1 = new DodgeEngine();
                 DodgeEngine1.AddPlayer(banPlayerName.getText(), dodgeReason.getText());
+                DodgeEngine1.StoreText();
                 message_board.setText("Task is complete");
             }
         });
