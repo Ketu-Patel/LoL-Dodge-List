@@ -32,17 +32,16 @@ public class DodgeEngine {
      * Stores Content of Inters Arraylist in Text File as CSV
      */
     public void StoreText(){
-        try {
-            FileWriter csvWriter = new FileWriter("Dodge_List.txt");
+        try(FileWriter csvWriter = new FileWriter("Dodge_List.txt")) {
             for (Player a : inters) {
                 String[] temp = {a.getName(), a.getMessage()};
                 csvWriter.append(String.join(",", temp));
                 csvWriter.append("\n");
             }
             csvWriter.flush();
-            csvWriter.close();
         }
         catch (IOException e){
+            //You need to switch to an external error log
             System.out.println(e.getMessage());
         }
     }
@@ -52,8 +51,7 @@ public class DodgeEngine {
      */
     public void ReadIn(){
         inters.clear();
-        try {
-            BufferedReader csvReader = new BufferedReader(new FileReader("Dodge_List.txt"));
+        try( BufferedReader csvReader = new BufferedReader(new FileReader("Dodge_List.txt"))) {
             String row;
             while ((row = csvReader.readLine()) != null) {
                 String[] data = row.split(",");
@@ -62,9 +60,11 @@ public class DodgeEngine {
             csvReader.close();
         }
         catch (FileNotFoundException e){
+            //You need to switch to an external error log
             System.out.println(e.getMessage());
         }
         catch (IOException e){
+            //You need to switch to an external error log
             System.out.println(e.getMessage());
         }
     }
@@ -90,6 +90,7 @@ public class DodgeEngine {
      * @param inters
      */
     public void setInters(ArrayList<String> inters) {
+        //You need to abstrac this so this is not an unnecessary type mismatch
         inters = inters;
     }
 }
