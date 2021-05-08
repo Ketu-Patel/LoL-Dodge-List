@@ -43,7 +43,6 @@ public class GUI1 {
                         }
                     }
                     //sift data and place in team
-                    //TODO Filter out duplicate "has joined the lobby"
 
                     String name = "";
                     Boolean discard = false;
@@ -60,7 +59,7 @@ public class GUI1 {
                             if (discard) {
                                 team.remove(name);
                                 discard = false;
-                            } else if (name.length() > 1) {
+                            } else if (name.length() > 1 && !team.contains(name)) {
                                 team.add(name);
                             }
                             name = "";
