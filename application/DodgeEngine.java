@@ -1,3 +1,4 @@
+package application;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -32,7 +33,7 @@ public class DodgeEngine {
      * Stores Content of Inters Arraylist in Text File as CSV
      */
     public void StoreText(){
-        try(FileWriter csvWriter = new FileWriter("Dodge_List.txt")) {
+        try(FileWriter csvWriter = new FileWriter("application/Dodge_List.txt")) {
             for (Player a : inters) {
                 String[] temp = {a.getName(), a.getMessage()};
                 csvWriter.append(String.join(",", temp));
@@ -51,7 +52,7 @@ public class DodgeEngine {
      */
     public void ReadIn(){
         inters.clear();
-        try( BufferedReader csvReader = new BufferedReader(new FileReader("Dodge_List.txt"))) {
+        try( BufferedReader csvReader = new BufferedReader(new FileReader("application/Dodge_List.txt"))) {
             String row;
             while ((row = csvReader.readLine()) != null) {
                 String[] data = row.split(",");

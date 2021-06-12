@@ -8,15 +8,15 @@
 
 <?import javafx.scene.control.TextField?>
 <TabPane prefHeight="360.0" prefWidth="300.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
-         fx:controller="Controller">
+         fx:controller="application.Controller">
    <tabs>
       <Tab text="Current Lobby">
          <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
                   <TextField layoutX="51.0" layoutY="14.0" prefHeight="28.0" prefWidth="199.0" promptText="Your Summoner Name" />
-                  <TextArea layoutX="51.0" layoutY="46.0" prefHeight="200.0" prefWidth="200.0" promptText="Place Lobby Chat Here" />
-                  <Button layoutX="101.0" layoutY="258.0" mnemonicParsing="false" text="Check Players" />
+                  <TextArea layoutX="51.0" layoutY="46.0" prefHeight="200.0" prefWidth="200.0" promptText="Place Lobby Chat Here" fx:id="lobbyChat"/>
+                  <Button layoutX="101.0" layoutY="258.0" mnemonicParsing="false" text="Check Players" onAction="#checkPlayers"/>
                </children></AnchorPane>
          </content>
       </Tab>
@@ -24,9 +24,9 @@
          <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="275.0" prefWidth="395.0">
                <children>
-                  <TextField layoutX="51.0" layoutY="14.0" prefHeight="28.0" prefWidth="199.0" promptText="Summoner You Want to Dodge" />
-                  <TextArea layoutX="51.0" layoutY="51.0" prefHeight="200.0" prefWidth="200.0" promptText="What is the Reason?" />
-                  <Button layoutX="105.0" layoutY="258.0" mnemonicParsing="false" text="Dodge Player" />
+                  <TextField layoutX="51.0" layoutY="14.0" prefHeight="28.0" prefWidth="199.0" promptText="Summoner You Want to Dodge" fx:id="dodgePlayer"/>
+                  <TextArea layoutX="51.0" layoutY="51.0" prefHeight="200.0" prefWidth="200.0" promptText="What is the Reason?" fx:id="dodgeReason"/>
+                  <Button layoutX="105.0" layoutY="258.0" mnemonicParsing="false" text="Dodge Player" onAction="#addToDodgeList"/>
                </children>
             </AnchorPane>
          </content>

@@ -1,4 +1,4 @@
-
+package application;
 
 public class Player {
     private String name;
@@ -9,8 +9,6 @@ public class Player {
         message = inputMessage;
 
     }
-
-
 
     public String getName() {
         return name;

@@ -1,3 +1,39 @@
+package application;
+
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+public class Main extends Application {
+
+    @Override
+    public void start(Stage primaryStage) throws Exception{
+        Parent root = FXMLLoader.load(getClass().getResource("DodgeListDisplay.fxml"));
+        primaryStage.setTitle("LoL Dodge List");
+        primaryStage.setScene(new Scene(root, 300, 275));
+        primaryStage.show();
+    }
+
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 import java.util.ArrayList;
 
 public class Main {
@@ -19,3 +55,4 @@ public class Main {
         System.out.println(DodgeEngine1.FindPlayers(inters1).get(1).getMessage());
     }
 }
+*/
