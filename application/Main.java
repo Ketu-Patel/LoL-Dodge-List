@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class Main extends Application {
@@ -11,8 +12,11 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("DodgeListDisplay.fxml"));
+        Scene scene = new Scene(root, 300, 325);
+        scene.getStylesheets().add(getClass().getResource("theme.css").toString());
+        primaryStage.setScene(scene);
         primaryStage.setTitle("LoL Dodge List");
-        primaryStage.setScene(new Scene(root, 300, 275));
+        primaryStage.getIcons().add(new Image(Main.class.getResourceAsStream("lol-512.png")));
         primaryStage.show();
     }
 
