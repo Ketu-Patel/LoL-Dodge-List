@@ -61,8 +61,6 @@ public class Controller {
             team.add(s[0]);
         }
 
-        //Check against DodgeList
-        Engine.ReadIn();
         Set<Player> found_inters = Engine.FindPlayers(team);
         //dodgePlayerFound(found_inters);
         //System.out.println(found_inters.get(0).getName());
@@ -72,4 +70,5 @@ public class Controller {
         Engine.AddPlayer(dodgePlayer.getText(), dodgeReason.getText());
         Engine.StoreText();
     }
+
 }

@@ -8,7 +8,7 @@ public class DodgeEngine {
     Map<String, Player> playerMap;
 
     public DodgeEngine(){
-
+        ReadIn();
     }
 
     /**
