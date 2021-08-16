@@ -5,19 +5,31 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("DodgeListDisplay.fxml"));
-        Scene scene = new Scene(root, 300, 325);
-        scene.getStylesheets().add(getClass().getResource("theme.css").toString());
-        primaryStage.setScene(scene);
-        primaryStage.setTitle("LoL Dodge List");
-        //primaryStage.getIcons().add(new Image(Main.class.getResourceAsStream("lol-512.png")));
-        primaryStage.show();
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("DodgeListDisplay.fxml"));
+        AnchorPane root;
+        try {
+            root = (AnchorPane) loader.load();
+            Controller c = loader.getController();
+            c.listInters(primaryStage);
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("theme.css").toString());
+            primaryStage.setScene(scene);
+            primaryStage.setTitle("LoL Dodge List");
+            //primaryStage.getIcons().add(new Image(Main.class.getResourceAsStream("lol-512.png")));
+            primaryStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 

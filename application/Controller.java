@@ -1,8 +1,11 @@
 package application;
 
 import javafx.event.ActionEvent;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.event.Event;
+import javafx.event.EventHandler;
+import javafx.fxml.FXML;
+import javafx.scene.control.*;
+import javafx.stage.Stage;
 
 import java.util.ArrayList;
 import java.util.Map;
@@ -11,10 +14,15 @@ import java.util.Set;
 public class Controller {
 
     public ArrayList<String>team;
+    private DodgeEngine Engine;
+
+    @FXML
     public TextArea lobbyChat;
     public TextField dodgePlayer;
     public TextArea dodgeReason;
-    private DodgeEngine Engine = new DodgeEngine();
+    public Label displayInters;
+    @FXML Tab griefers, add, lobby;
+    public Stage stage;
 
     public void checkPlayers(ActionEvent actionEvent) {
         //places data into arraylist
@@ -69,6 +77,25 @@ public class Controller {
     public void addToDodgeList(ActionEvent actionEvent) {
         Engine.AddPlayer(dodgePlayer.getText(), dodgeReason.getText());
         Engine.StoreText();
+    }
+
+    @FXML
+    private void initialize() {
+        Engine = new DodgeEngine();
+    }
+
+    public void listInters(Stage stage){
+        this.stage = stage;
+        griefers.setOnSelectionChanged(new EventHandler<Event>() {
+            @Override
+            public void handle(Event t) {
+                if (griefers.isSelected()) {
+                    displayInters.setText(Engine.playerMap.values().toString().replaceAll("\\[", "")
+                            .replaceAll("\\]", "").replaceAll(", N", "\nN"));
+                }
+            }
+        });
+
     }
 
 }

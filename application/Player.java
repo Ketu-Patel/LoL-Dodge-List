@@ -57,7 +57,6 @@ public class Player {
                 ", Games Lost With Player=" + gamesLost +
                 ", Games Won With Player=" + gamesWon +
                 ", Games Dodged With Player=" + gamesDodged +
-                ", Note='" + message + '\'' +
-                '}';
+                ", Note='" + message + '\'';
     }
 }

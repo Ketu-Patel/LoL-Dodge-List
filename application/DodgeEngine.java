@@ -50,7 +50,7 @@ public class DodgeEngine {
             String row;
             playerMap = new HashMap<String, Player>();
             while ((row = csvReader.readLine()) != null) {
-                String[] split1 = row.split(", | =");
+                String[] split1 = row.split(",|=");
                 playerMap.put(split1[1], new Player(split1[1], Integer.parseInt(split1[3]), Integer.parseInt(split1[5]),
                         Integer.parseInt(split1[7]), split1[9]));
 
