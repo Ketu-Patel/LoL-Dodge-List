@@ -9,5 +9,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="org.jetbrains:annotations:16.0.2" level="application" />
     <orderEntry type="library" exported="" name="javafx-16" level="application" />
+    <orderEntry type="library" name="jetbrains.annotations" level="project" />
   </component>
 </module>

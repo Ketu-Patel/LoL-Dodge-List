@@ -8,10 +8,10 @@
 }
 
 .button{
-    -fx-color:#1d6cff;
+    -fx-color:#6fc7ff;
 }
 .button:hover{
-  -fx-color: #1CD651;
+  -fx-color: #c7b2ff;
 }
 
 .tab-pane .tab-header-area .tab-header-background {
@@ -34,7 +34,7 @@
 
 .tab-pane .tab:selected
 {
-    -fx-background-color: #abb9ff;
+    -fx-background-color: #c7b2ff;
 }
 
 .tab .tab-label {

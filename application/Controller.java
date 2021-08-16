@@ -5,6 +5,8 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 import java.util.ArrayList;
+import java.util.Map;
+import java.util.Set;
 
 public class Controller {
 
@@ -61,9 +63,9 @@ public class Controller {
 
         //Check against DodgeList
         Engine.ReadIn();
-        ArrayList<Player> found_inters = Engine.FindPlayers(team);
+        Set<Player> found_inters = Engine.FindPlayers(team);
         //dodgePlayerFound(found_inters);
-        System.out.println(found_inters.get(0).getName());
+        //System.out.println(found_inters.get(0).getName());
     }
 
     public void addToDodgeList(ActionEvent actionEvent) {

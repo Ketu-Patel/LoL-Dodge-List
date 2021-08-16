@@ -16,7 +16,7 @@ public class Main extends Application {
         scene.getStylesheets().add(getClass().getResource("theme.css").toString());
         primaryStage.setScene(scene);
         primaryStage.setTitle("LoL Dodge List");
-        primaryStage.getIcons().add(new Image(Main.class.getResourceAsStream("lol-512.png")));
+        //primaryStage.getIcons().add(new Image(Main.class.getResourceAsStream("lol-512.png")));
         primaryStage.show();
     }
 
